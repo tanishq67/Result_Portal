@@ -1,0 +1,20 @@
+
+
+<div fxLayoutAlign="center">
+  <mat-card class="title" fxLayoutAlign="center" fxLayoutGap="1.5%">
+    <img src="https://tosc.techkriti.org/assets/images/O.png" alt="TOSC 2020" width="5%">
+    <h1>TOSC 2020 Results</h1>
+  </mat-card>
+</div>
+
+<ng-container *ngIf="!toggle">
+
+  <app-login fxLayoutAlign="center" (studentEmitter)="showResult($event)"></app-login>
+
+</ng-container>
+
+<ng-container *ngIf="toggle">
+
+  <app-results fxLayoutAlign="center" [student]="student" (back)="toggle = false"></app-results>
+
+</ng-container>

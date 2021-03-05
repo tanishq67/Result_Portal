@@ -1,0 +1,94 @@
+<div fxLayout="column">
+
+  <div class="container">
+    <button mat-raised-button color="warn" (click)="back.emit()" style="margin-bottom: 10px; width:20px">
+      Back
+    </button>
+  </div>
+
+  <div class="container">
+
+    <mat-card>
+
+      <mat-card-content>
+
+        <div fxLayout="row wrap" class="content">
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Student Name
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.name }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Class
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.class }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Pool
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.pool }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Score
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.score + (student.pool === 'C' ? ' / 360' : ' / 300') }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Class Rank
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.c_rank }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Pool Rank
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.p_rank }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Shortlisted for Phase 2
+          </div>
+
+          <div fxFlex="50%">
+            {{ student.p_rank < 101 ? "YES" : "NO" }}
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            Certificate
+          </div>
+
+          <div fxFlex="50%">
+            <a href="assets/pcerts/{{student.pool}}/{{student.p_rank}}.png" download>Download participation certificate</a>
+            <span *ngIf="student.p_rank < 101"><br/><a href="assets/mcerts/{{student.pool}}/{{student.p_rank}}.png" download>Download merit certificate</a> </span>
+          </div>
+
+          <div fxFlex="50%" class="mat-body-strong">
+            <a href="https://www.hackerearth.com" target="_blank"><img src="https://static-fastly.hackerearth.com/static/hackerearth/images/badge/HE_badge_on_light.png" alt="HackerEarth badge"></a>
+          </div>
+
+        </div>
+
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+
+</div>

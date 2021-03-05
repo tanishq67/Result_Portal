@@ -1,0 +1,42 @@
+<div class="container">
+
+  <mat-card>
+
+    <mat-card-content fxLayoutAlign="center">
+
+    <form  [formGroup]="studentForm" fxFlexFill>
+
+      <div fxLayout="column">
+
+        <mat-form-field>
+          <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" formControlName="email" required>
+            <mat-error *ngIf="studentForm.controls.email.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="studentForm.controls.email.hasError('email')">Invalid Email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Your Pool</mat-label>
+          <mat-select formControlName="pool" required>
+            <mat-option *ngFor="let pool of pools" [value] = "pool">{{pool}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="studentForm.controls.pool.hasError('required')">Pool is required</mat-error>
+        </mat-form-field>
+
+        <mat-error *ngIf="notFound" style="margin-bottom: 5px;">No student found with the given email address.</mat-error>
+
+        <mat-hint *ngIf="notFound">Use the e-mail address you used to give the test on Hackerearth.</mat-hint>
+
+      </div>
+
+    </form>
+
+    </mat-card-content>
+
+    <mat-card-actions fxLayoutAlign="center">
+      <button type="submit" color="primary" mat-raised-button (click) ='submit()' [disabled] = 'studentForm.invalid'>Submit</button>
+    </mat-card-actions>
+
+  </mat-card>
+
+</div>
